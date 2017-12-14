@@ -28,27 +28,49 @@ class RidersPageParser
         break
       end
     end
-    language_count(row,col)
-  
-    return {
-      country: {
-        country_name: country,
-        country_code: @form.cell(row, col)
-        },
-      pages:{
+    country= {
+      country_name: country,
+      country_code: @form.cell(row,col)
+    }
+
+    array = []
+    language_count(row,col).times do |i|
+      pages = {
           laguage_code: find_language_info(row,col),
           title: find_title_info(row,col),
           header: find_header_info(row,col),
-          content_1: find_content_block_1(row,col),
-          content_2: content_block_2_info(row,col),
-          call_to_action: find_call_to_action_1(row, col),
+          content_block_1: find_content_block_1(row,col),
+          content_block_2: content_block_2_info(row,col),
+          call_to_action_1: find_call_to_action_1(row, col),
           how_to_1: how_to_info(row,col),
-          content_3:content_block_3(row,col),
+          content_block_3:content_block_3(row,col),
           bike_info: bike_description(row,col),
-          content_5: content_block_5(row,col),
+          content_block_5: content_block_5(row,col),
           call_to_action_2:call_to_action_two(row,col)
         }
-      }
+
+    end
+
+  
+    # return {
+    #   country: {
+    #     country_name: country,
+    #     country_code: @form.cell(row, col)
+    #     },
+    #   pages:{
+    #       laguage_code: find_language_info(row,col),
+    #       title: find_title_info(row,col),
+    #       header: find_header_info(row,col),
+    #       content_block_1: find_content_block_1(row,col),
+    #       content_block_2: content_block_2_info(row,col),
+    #       call_to_action_1: find_call_to_action_1(row, col),
+    #       how_to_1: how_to_info(row,col),
+    #       content_block_3:content_block_3(row,col),
+    #       bike_info: bike_description(row,col),
+    #       content_block_5: content_block_5(row,col),
+    #       call_to_action_2:call_to_action_two(row,col)
+    #     }
+    #   }
   end
   
   def initialize
@@ -211,4 +233,4 @@ end
 
 parser = RidersPageParser.new
 
-p parser.find_page_info[:country]
+p parser.find_page_info
