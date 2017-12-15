@@ -1,13 +1,13 @@
 require 'pry'
 require 'roo'
 require_relative './page.rb'
-class CSVParser
+class SpreadSheetParser
 
   attr_reader :form, :hash
   attr_accessor :test, :page_data
   
-  def initialize
-    @form = Roo::Spreadsheet.open('./do_not_delete/usa-translations.xlsx', extension: :xlsx)
+  def initialize(filename)
+    @form = Roo::Spreadsheet.open("../do_not_delete/#{filename}.xlsx", extension: :xlsx)
     @pages = []
     @page_data = {}
   end
