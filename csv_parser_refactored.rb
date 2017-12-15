@@ -53,5 +53,4 @@ class CSVParser
   end
 end
 
-parser = CSVParser.new
-parser.get_page_data(19,3)
+
