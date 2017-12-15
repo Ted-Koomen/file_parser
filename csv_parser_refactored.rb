@@ -7,7 +7,7 @@ class CSVParser
   attr_accessor :test, :page_data
   
   def initialize
-    @form = Roo::Spreadsheet.open('./usa-translations.xlsx', extension: :xlsx)
+    @form = Roo::Spreadsheet.open('./do_not_delete/usa-translations.xlsx', extension: :xlsx)
     @pages = []
     @page_data = {}
   end
@@ -43,7 +43,7 @@ class CSVParser
       until @form.cell(row, col) == 'stop'
         hash[@form.cell(row,3)]= @form.cell(row,col + 1) if !!(@form.cell(row,col + 1))
         row += 1
-        if row == 54
+        if row == 56
           @test << Page.new(@hash)     
           @hash = {}
           row = 20

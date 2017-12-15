@@ -1,6 +1,7 @@
-country = Country.new(country_name:'單車騎手' country_code:'單車騎手')
-單車騎手 = 單車騎手.new(
-page:"單車騎手",
+country = Country.find_by(country_code: 'US') ? Country.find_by(country_code: 'US') : Country.create(name:'', country_code:'US')
+page = RidersPage.new (
+page_type:"RidersPage",
+page_title:"單車騎手",
 header_title:"選擇最佳的共享單車方案",
 header_body:"選擇ofo，您只需要找到一輛小黃車，騎到您的目的地，並把車停在合適的區域。毋需歸還至指定車站，毋需多費腳力。因為共享單車就是這麼便利！",
 content_block_1_title:"借車、還車，地點隨意！",
@@ -10,17 +11,16 @@ call_to_action_body:"下載地址：",
 content_block_2_title:"感受ofo，隨心所欲",
 content_block_2_body:"找單車、掃單車、騎單車、鎖單車",
 how_to_1_title:"尋找單車",
-how_to_1_body:"打開您手機上的ofo app，您附近的小黃車位置一覽無遺",
+how_to_body:"打開您手機上的ofo app，您附近的小黃車位置一覽無遺",
 how_to_2_title:"點擊掃碼",
 how_to_2_body:"站在小黃車前，按下手機屏幕上的“解鎖”按鈕，掃描車身上的QR碼，即可自動解鎖單車。",
-how_to_3_title:"輕鬆騎行",
+How_to_3_title:"輕鬆騎行",
 how_to_3_body:"腳踩單車，發掘您所在的城市之美，安全到達您的目的地。",
-how_to_4_title:"停車上鎖",
+How_to_4_title:"停車上鎖",
 how_to_4_body:"結束騎行時，您只需要將單車停放在安全且不阻礙交通的位置，手動合上鎖，即可自動結束您的訂單。",
 content_block_3_tile:"最優價格",
 content_block_3_body:"僅需 $1／小時",
 content_block_4:"您的開心，我們的放心",
-t.references: country
+country: country
 )
-單車騎手.save 
- country.save
+page.save
