@@ -6,7 +6,7 @@ files = ['usa-translations','usa-translations-1-1']
 
   parser = SpreadSheetParser.new(files[0])
   parser.get_page_data(19,3)
-  p parser.test
+
   
   
 

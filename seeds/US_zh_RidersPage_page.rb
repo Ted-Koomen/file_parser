@@ -20,6 +20,18 @@ how_to_step_4_paragraph:"結束騎行時，您只需要將單車停放在安全�
 content_block_4_headline:"最優價格",
 content_block_4_paragraph:"僅需 $1／小時",
 content_block_5_headline:"您的開心，我們的放心",
+bike_description_handle_bar:"test",
+bike_description_front_wheel:"test",
+bike_description_tire:"test",
+bike_description_frame_bar:"test",
+bike_description_seat:"test",
+bike_description_lock:"test",
+bike_description_brake:"test",
+bike_description_back_wheel:"test",
+bike_description_kickstand:"test",
+content_block_6_headline:"test",
+call_to_action_2_headline:"test",
+call_to_action_2_button_text:"test",
 country: country
 )
 page.save

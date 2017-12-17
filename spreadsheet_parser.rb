@@ -32,8 +32,8 @@ class SpreadSheetParser
     @hash = {}
     key_word = ''
       until key_word == 'stop'
-        hash[@form.cell(row,3)]= @form.cell(row,col + 1) if !!(@form.cell(row,col + 1))
-        key_word = @form.cell(row, col + 1)        
+        key_word = @form.cell(row, col + 1) ? @form.cell(row, col + 1).strip : false
+        hash[@form.cell(row,3)]= key_word
         row += 1
         if key_word == "create"
           @test << Page.new(@hash)
