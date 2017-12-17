@@ -2,18 +2,14 @@ require_relative '../spreadsheet_parser.rb'
 
 files = ['usa-translations','usa-translations-1-1']
 
-files.each do |file|
+# files.each do |file|
 
-  parser = SpreadSheetParser.new(file)
+  parser = SpreadSheetParser.new(files[0])
   parser.get_page_data(19,3)
-  parser.test.pop
-  # parser.test.each do |page|
-  #   File.new("#{page.page["page"]}_seed.rb", 'w+')
-  # end
+  p parser.test
   
   
-  
-  
+
   parser.test.each do |page|
     File.open("#{page.country_code}_#{page.language_code}_#{page.page_type}_page.rb", 'w') do |f|
       f.puts("country = Country.find_by(country_code: '#{page.country_code}') ? Country.find_by(country_code: '#{page.country_code}') : Country.create(name:'#{page.country_name}', country_code:'#{page.country_code}')")
@@ -29,6 +25,7 @@ files.each do |file|
   parser.test.each do |page|
     File.open("#{page.country_code}_#{page.language_code}_#{page.page_type}_page.rb", 'a') do |f|
         page.page.each_entry {|key, value| f.puts("#{key}" ":" '"' "#{value}" '",')}
+        p f
     end
     
   end
@@ -50,4 +47,4 @@ files.each do |file|
       f.puts("page.save")
     end
   end 
-end
+

@@ -27,26 +27,22 @@ class SpreadSheetParser
     @form.cell(13,3)
   end
 
-  # def get_number_of_languages(row,col)
-  #   languages = 0
-  #   @form.cell(row,col)
-  #   until @form.cell(row,col) == nil
-  #     col += 1
-  #     languages += 1
-  #   end
-  #   languages
-  # end
-
   def get_page_data(row,col)
     @test = []
     @hash = {}
-      until @form.cell(row, col) == 'stop'
+    key_word = ''
+      until key_word == 'stop'
         hash[@form.cell(row,3)]= @form.cell(row,col + 1) if !!(@form.cell(row,col + 1))
+        key_word = @form.cell(row, col + 1)        
         row += 1
-        if row == 56
+        if key_word == "create"
+          @test << Page.new(@hash)
+          @hash = {}
+        end
+        if key_word == "new_language"
           @test << Page.new(@hash)     
           @hash = {}
-          row = 20
+          row = 19
           col += 1
         end
     end
