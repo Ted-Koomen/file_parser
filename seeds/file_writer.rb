@@ -1,10 +1,10 @@
 require_relative '../spreadsheet_parser.rb'
 
-files = ['usa-translations','usa-translations-1-1']
+files = ['usa-translations','austria-translations']
 
-# files.each do |file|
+files.each do |file|
 
-  parser = SpreadSheetParser.new(files[0])
+  parser = SpreadSheetParser.new(files[1])
   parser.get_page_data(19,3)
 
   
@@ -48,3 +48,4 @@ files = ['usa-translations','usa-translations-1-1']
     end
   end 
 
+end
