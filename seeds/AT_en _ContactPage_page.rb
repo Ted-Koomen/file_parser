@@ -1,0 +1,33 @@
+country = Country.find_by(country_code: 'AT') ? Country.find_by(country_code: 'AT') : Country.create(name:'Austria ', country_code:'AT')
+page = ContactPage.new(
+page_title:"",
+content_block_1_headline:"",
+content_block_1_paragraph:"",
+email_1_title:"",
+email_1_address:"austria@ofobike.com",
+email_2_title:"",
+email_2_address:"austria@ofobike.com",
+email_3_title:"",
+email_3_address:"",
+email_4_title:"",
+email_4_address:"elisabeth@ofobike.com",
+email_form_headline:"",
+full_name_field:"",
+full_name_field_error_state:"",
+email_field:"",
+emai_field_error_state:"",
+subject_type_field:"",
+subject_type_field_placeholder_text:"",
+subject_type_field_option_1:"",
+subject_type_field_option_2:"",
+subkect_type_field_option_3:"",
+subject_type_field_option_4:"",
+subject_type_field_option_5:"",
+subject_type_field_error_state:"",
+message_field:"",
+message_field_error_state:"",
+submit_button_inactive_text:"",
+submit_button_active_text:"",
+country: country
+)
+page.save

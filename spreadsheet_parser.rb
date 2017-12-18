@@ -35,20 +35,19 @@ class SpreadSheetParser
         key_word = @form.cell(row, col + 1) 
         hash[@form.cell(row,3)]= key_word
         row += 1
-        if key_word == 'skip'
-          @hash = {}
-          col += 1
-          row = 19
-        end
-        if key_word == "create"
-          @test << Page.new(@hash)
-          @hash = {}
-        end
-        if key_word == "next_language"
-          @test << Page.new(@hash)     
-          @hash = {}
-          row = 19
-          col += 1
+        case key_word
+          when 'skip'
+            @hash = {}
+            col += 1
+            row = 19
+          when 'create'
+            @test << Page.new(@hash)
+            @hash = {}
+          when 'next_language'
+            @test << Page.new(@hash)     
+            @hash = {}
+            row = 19
+            col += 1
         end
     end
   end

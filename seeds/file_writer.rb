@@ -25,7 +25,6 @@ files.each do |file|
   parser.test.each do |page|
     File.open("#{page.country_code}_#{page.language_code}_#{page.page_type}_page.rb", 'a') do |f|
         page.page.each_entry {|key, value| f.puts("#{key}" ":" '"' "#{value}" '",')}
-        p f
     end
     
   end

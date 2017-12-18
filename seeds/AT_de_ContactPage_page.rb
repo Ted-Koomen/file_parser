@@ -1,0 +1,33 @@
+country = Country.find_by(country_code: 'AT') ? Country.find_by(country_code: 'AT') : Country.create(name:'Austria', country_code:'AT')
+page = ContactPage.new(
+page_title:"Kontakt",
+content_block_1_headline:"Kontaktiere ofo",
+content_block_1_paragraph:"Wir freuen uns auf deine Nachricht.",
+email_1_title:"Support",
+email_1_address:"austria@ofobike.com",
+email_2_title:"Unternehmen",
+email_2_address:"austria@ofobike.com",
+email_3_title:"Karriere",
+email_3_address:"career@ofobike.com",
+email_4_title:"Presse",
+email_4_address:"elisabeth@ofobike.com",
+email_form_headline:"oder benutze das Kontaktformular",
+full_name_field:"Vollständiger Name",
+full_name_field_error_state:"Name erforderlich",
+email_field:"E-Mail Adresse",
+emai_field_error_state:"E-Mail Adresse erforderlich",
+subject_type_field:"Kategorie",
+subject_type_field_placeholder_text:"Kategorieauswahl erforderlich",
+subject_type_field_option_1:"Geschäftsanfrage",
+subject_type_field_option_2:"Karriere",
+subkect_type_field_option_3:"Kundenservice",
+subject_type_field_option_4:"Allgemeine Informationen",
+subject_type_field_option_5:"Presseanfrage",
+subject_type_field_error_state:"Bitte eine Kategorie auswählen.",
+message_field:"Nachricht",
+message_field_error_state:"Die Nachricht darf nicht leer sein.",
+submit_button_inactive_text:"Bitte das Formular ausfüllen um fortzufahren.",
+submit_button_active_text:"Nachricht senden",
+country: country
+)
+page.save
